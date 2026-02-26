@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --color-bg: #080a11;
+  --color-surface: #111625;
+  --color-surface-2: #181f33;
+  --color-border: #2f3a56;
+  --color-text: #ecf1ff;
+  --color-muted: #acb8d4;
+  --color-accent: #5eead4;
+  --color-accent-strong: #2dd4bf;
+  --color-focus: #fde047;
+  --color-on-accent: #041412;
+}
+
+@theme inline {
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-text);
+  --font-sans: var(--font-body);
+}
+
+body {
+  background:
+    radial-gradient(80rem 40rem at 95% -10%, rgba(94, 234, 212, 0.15), transparent 60%),
+    radial-gradient(50rem 30rem at -10% 10%, rgba(147, 197, 253, 0.12), transparent 50%),
+    var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: rgba(45, 212, 191, 0.3);
+  color: var(--color-text);
+}
+
+a,
+button,
+summary {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 50;
+  border-radius: 0.5rem;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  transition: top 120ms ease-in-out;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.edgy-border {
+  position: relative;
+}
+
+.edgy-border::before {
+  border-radius: 1rem;
+  content: "";
+  inset: -1px;
+  padding: 1px;
+  position: absolute;
+  pointer-events: none;
+  background: linear-gradient(120deg, rgba(94, 234, 212, 0.8), rgba(168, 85, 247, 0.4), rgba(147, 197, 253, 0.7));
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+.subtle-float {
+  animation: subtle-float 5s ease-in-out infinite;
+}
+
+@keyframes subtle-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
