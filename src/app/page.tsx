@@ -1,4 +1,5 @@
 import { CopyButton } from "@/components/site/copy-button";
+import { DigitalTwinChat } from "@/components/site/digital-twin-chat";
 import { Badge } from "@/components/ui/badge";
 import { LinkButton } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -26,6 +27,7 @@ export default function Home() {
     { id: "about", label: "About" },
     { id: "career", label: "Career" },
     { id: "skills", label: "Skills" },
+    { id: "chat", label: "AI Chat" },
     { id: "portfolio", label: "Portfolio" },
     { id: "contact", label: "Contact" },
   ];
@@ -219,6 +221,17 @@ export default function Home() {
               </ul>
             </Card>
           </div>
+        </Section>
+
+        <Section
+          id="chat"
+          eyebrow="Career Digital Twin"
+          title="Ask AI about my career"
+          description="This AI assistant uses on-site profile data and Ollama Cloud (`gpt-oss:120b`) to answer career-focused questions."
+        >
+          <Card>
+            <DigitalTwinChat />
+          </Card>
         </Section>
 
         <Section id="portfolio" eyebrow="Portfolio" title="Projects and case studies">
